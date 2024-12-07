@@ -20,10 +20,10 @@ class Person:
     is_employed = True
 
 
-s = input()
-s_list = s.split()
+line = input()
+line_list = line.split()
 
-for i in s_list:
+for i in line_list:
     if i.lower() in Person.__dict__:
         print(f'{i}-YES')
     else:
