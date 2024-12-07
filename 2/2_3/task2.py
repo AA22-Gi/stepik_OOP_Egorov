@@ -10,6 +10,10 @@ def create_instance(n: int) -> Config:
 
 
 if __name__ == '__main__':
+    config_2 = create_instance(2)
+    print(isinstance(config_2, Config))
+    print(config_2.__dict__)
+    print()
     config_4 = create_instance(4)
     config_3 = create_instance(3)
     config_2 = create_instance(2)
