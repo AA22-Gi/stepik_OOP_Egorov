@@ -35,3 +35,6 @@ class Point:
             print(f'Point({self.x}, {self.y})')
         else:
             print('Координаты не заданы')
+
+    def get_point_with_max_distance(self):
+        pass
