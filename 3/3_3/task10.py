@@ -19,9 +19,12 @@ from math import sqrt
 
 
 class Point:
+    all_points = []
+
     def __init__(self, x, y):
         self.x = x
         self.y = y
+        Point.all_points.append(self)
 
     def get_distance_to_origin(self):
         if hasattr(self, 'x') and hasattr(self, 'y'):
@@ -36,12 +39,16 @@ class Point:
         else:
             print('Координаты не заданы')
 
+
     def get_point_with_max_distance(self):
-        pass
+        self.big_point = max(Point.all_points, key=lambda x: (x.get_distance_to_origin(), x.y))
+        return self.big_point.display()
+
+
 
 
 if __name__ == '__main__':
-    p1 = Point(4, 5)
-    p2 = Point(2, 4)
-    p3 = Point(5, 1)
+    p1 = Point(6, 8)
+    p2 = Point(8, 6)
+
     p2.get_point_with_max_distance()
