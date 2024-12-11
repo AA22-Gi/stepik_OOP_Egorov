@@ -12,3 +12,25 @@
     4) метод is_isosceles, который проверяет, является ли треугольник равнобедренным и существующим.
     Треугольник называется равнобедренным, если у него две стороны равны
 """
+
+
+class Triangle:
+    def __init__(self, a, b, c):
+        self.a = a
+        self.b = b
+        self.c = c
+
+    def is_exists(self) -> bool:
+        if self.a < self.b + self.c and self.b < self.a + self.c and self.c < self.b + self.a:
+            return True
+        return False
+
+    def is_equilateral(self) -> bool:
+        if self.a == self.b == self.c:
+            return True
+        return False
+
+    def is_isosceles(self) -> bool:
+        if self.is_exists() and (self.a == self.b or self.b == self.c or self.a == self.c):
+            return True
+        return False
