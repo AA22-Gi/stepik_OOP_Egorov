@@ -30,3 +30,5 @@ class Employee:
         else:
             print(f'ErrorValue:{new_salary}')
 
+    title = property(fget=__get_name)
+    reward = property(fget=__get_salary, fset=__set_salary)
