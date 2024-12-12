@@ -23,3 +23,9 @@ class UserMail:
     def get_email(self):
         return self.__email
 
+    def set_email(self, new_email: str):
+        if '@.' in new_email and new_email.count('@') == 1:
+            self.__email = new_email
+        else:
+            raise ValueError(f'ErrorMail:{new_email}')
+
