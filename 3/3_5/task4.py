@@ -32,6 +32,14 @@ class Employee:
     def _set_position(self, new_position):
         self.__position = new_position
 
+    def get_position(self):
+        return self.__position
+
+    def get_salary(self):
+        return self.__calculate_salary()
+
+
+
 
 
 
