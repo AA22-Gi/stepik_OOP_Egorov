@@ -19,3 +19,7 @@
 """
 
 
+class Library:
+    def __init__(self, books: list):
+        self.__books = books
+
