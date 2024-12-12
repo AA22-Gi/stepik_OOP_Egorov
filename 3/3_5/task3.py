@@ -27,3 +27,7 @@ class Library:
         if book in self.__books:
             return True
         return False
+
+    def search_book(self, book):
+        self.__check_availability(book)
+
