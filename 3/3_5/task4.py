@@ -17,3 +17,11 @@
        "Name: {name}, Position: {position}, Salary: {salary}"
        Здесь значение salary должно рассчитываться при помощи приватного метода calculate_salary.
 """
+
+
+class Employee:
+    def __init__(self, name, position, hours_worked, hourly_rate):
+        self.name = name
+        self.__position = position
+        self.__hours_worked = hours_worked
+        self.__hourly_rate = hourly_rate
