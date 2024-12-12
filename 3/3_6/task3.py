@@ -16,7 +16,7 @@
 
 
 class UserMail:
-    def __init(self, login, email):
+    def __init__(self, login: str, email: str):
         self.login = login
         self.__email = email
 
@@ -30,3 +30,7 @@ class UserMail:
             raise ValueError(f'ErrorMail:{new_email}')
 
     email = property(fget=get_email, fset=set_email)
+
+
+if __name__ == '__main__':
+    pass
