@@ -27,9 +27,7 @@ class Library:
         return book in self.__books
 
     def search_book(self, book: str) -> bool:
-        if self.__check_availability(book):
-            return True
-        return False
+        return self.__check_availability(book)
 
     def return_book(self, book: str) -> None:
         self.__books.append(book)
