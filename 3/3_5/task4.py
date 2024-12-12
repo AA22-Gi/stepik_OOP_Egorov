@@ -42,7 +42,22 @@ class Employee:
         return f'Name: {self.name}, Position: {self.__position}, Salary: {self.__calculate_salary()}'
 
 
+if __name__ == '__main__':
+    # Ниже код для проверки методов класса Employee
+    employee = Employee("Джеки Чан", 'manager', 20, 40)
+    assert employee.name == 'Джеки Чан'
+    assert employee._Employee__hours_worked == 20
+    assert employee._Employee__hourly_rate == 40
+    assert employee._Employee__position == 'manager'
+    assert employee.get_position() == 'manager'
+    assert employee.get_salary() == 800
+    assert employee._Employee__calculate_salary() == 800
+    assert employee.get_employee_details() == 'Name: Джеки Чан, Position: manager, Salary: 800'
+    employee._set_position('Director')
+    assert employee.get_employee_details() == 'Name: Джеки Чан, Position: Director, Salary: 800'
 
+    employee_2 = Employee("Пирс Броснан", 'actor', 35, 30)
+    assert employee_2._Employee__calculate_salary() == 1050
+    assert employee_2.get_employee_details() == 'Name: Пирс Броснан, Position: actor, Salary: 1050'
 
-
-
+    print('Good')
