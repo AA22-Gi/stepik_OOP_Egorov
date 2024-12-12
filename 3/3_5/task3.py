@@ -33,3 +33,9 @@ class Library:
 
     def return_book(self, book):
         self.__books.append(book)
+
+    def _checkout_book(self, book):
+        if self.__check_availability(book):
+            self.__books.remove(book)
+            return True
+        return False
