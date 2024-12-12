@@ -29,3 +29,4 @@ class UserMail:
         else:
             raise ValueError(f'ErrorMail:{new_email}')
 
+    email = property(fget=get_email, fset=set_email)
