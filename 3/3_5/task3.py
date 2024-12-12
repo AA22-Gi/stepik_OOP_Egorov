@@ -24,9 +24,7 @@ class Library:
         self.__books = books
 
     def __check_availability(self, book: str) -> bool:
-        if book in self.__books:
-            return True
-        return False
+        return book in self.__books
 
     def search_book(self, book: str) -> bool:
         if self.__check_availability(book):
