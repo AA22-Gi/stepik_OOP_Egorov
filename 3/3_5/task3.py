@@ -31,3 +31,5 @@ class Library:
     def search_book(self, book):
         self.__check_availability(book)
 
+    def return_book(self, book):
+        self.__books.append(book)
