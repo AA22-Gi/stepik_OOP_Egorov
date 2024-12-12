@@ -25,3 +25,13 @@ class Employee:
         self.__position = position
         self.__hours_worked = hours_worked
         self.__hourly_rate = hourly_rate
+
+    def __calculate_salary(self):
+        return self.__hours_worked * self.__hourly_rate
+
+    def _set_position(self, new_position):
+        self.__position = new_position
+
+
+
+
