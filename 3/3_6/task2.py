@@ -17,3 +17,16 @@ class Employee:
     def __init__(self, name, salary):
         self.__name = name
         self.__salary = salary
+
+    def __get_name(self):
+        return self.__name
+
+    def __get_salary(self):
+        return self.__salary
+
+    def __set_salary(self, new_salary):
+        if isinstance(new_salary, (int, float)) and new_salary > 0:
+            self.__salary = new_salary
+        else:
+            print(f'ErrorValue:{new_salary}')
+
