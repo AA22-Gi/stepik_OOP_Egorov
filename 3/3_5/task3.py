@@ -23,20 +23,20 @@ class Library:
     def __init__(self, books: list):
         self.__books = books
 
-    def __check_availability(self, book):
+    def __check_availability(self, book: str) -> bool:
         if book in self.__books:
             return True
         return False
 
-    def search_book(self, book):
+    def search_book(self, book: str) -> bool:
         if self.__check_availability(book):
             return True
         return False
 
-    def return_book(self, book):
+    def return_book(self, book: str) -> None:
         self.__books.append(book)
 
-    def _checkout_book(self, book):
+    def _checkout_book(self, book: str) -> bool:
         if self.__check_availability(book):
             self.__books.remove(book)
             return True
