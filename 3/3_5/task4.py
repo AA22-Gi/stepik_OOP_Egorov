@@ -38,6 +38,9 @@ class Employee:
     def get_salary(self):
         return self.__calculate_salary()
 
+    def get_employee_details(self):
+        return f'Name: {self.name}, Position: {self.__position}, Salary: {self.__calculate_salary()}'
+
 
 
 
