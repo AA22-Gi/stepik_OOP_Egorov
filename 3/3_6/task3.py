@@ -15,3 +15,8 @@
 """
 
 
+class UserMail:
+    def __init(self, login, email):
+        self.login = login
+        self.__email = email
+
