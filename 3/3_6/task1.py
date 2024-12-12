@@ -22,3 +22,15 @@ class BankAccount:
     def set_balance(self, new_balance):
         self._balance = new_balance
 
+
+if __name__ == '__main__':
+    # Ниже код для проверки методов класса BankAccount
+    account = BankAccount("1234567890", 1000)
+    assert account._balance == 1000
+    assert account._account_number == "1234567890"
+    assert account.get_account_number() == "1234567890"
+    assert account.get_balance() == 1000
+    account.set_balance(1500)
+    assert account.get_balance() == 1500
+
+    print('Good')
