@@ -32,3 +32,28 @@ class Employee:
 
     title = property(fget=__get_name)
     reward = property(fget=__get_salary, fset=__set_salary)
+
+
+if __name__ == '__main__':
+    # Ниже код для проверки методов класса Employee
+    employee = Employee("John Doe", 50000)
+    assert employee.title == "John Doe"
+    assert employee._Employee__name == "John Doe"
+    assert isinstance(employee, Employee)
+    assert isinstance(type(employee).title, property), 'Вы не создали property title'
+    assert isinstance(type(employee).reward, property), 'Вы не создали property reward'
+
+    assert employee.reward == 50000
+    employee.reward = -100  # ErrorValue:-100
+
+    employee.reward = 1.5
+    assert employee.reward == 1.5
+
+    employee.reward = 70000
+    assert employee.reward == 70000
+    employee.reward = 'hello'  # Печатает ErrorValue:hello
+    employee.reward = '777'  # Печатает ErrorValue:777
+    employee.reward = [1, 2]  # Печатает ErrorValue:[1, 2]
+    assert employee.reward == 70000
+    employee._Employee__set_salary(55000)
+    assert employee._Employee__get_salary() == 55000
