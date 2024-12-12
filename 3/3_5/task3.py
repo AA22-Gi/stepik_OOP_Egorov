@@ -23,3 +23,7 @@ class Library:
     def __init__(self, books: list):
         self.__books = books
 
+    def __check_availability(self, book):
+        if book in self.__books:
+            return True
+        return False
