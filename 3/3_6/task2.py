@@ -11,3 +11,9 @@
     5) свойство title, у которого есть только геттер из пункта 2.
     6) свойство reward, у которого геттером будет метод из пункта 3, а сеттером — метод из пункта 4.
 """
+
+
+class Employee:
+    def __init__(self, name, salary):
+        self.__name = name
+        self.__salary = salary
