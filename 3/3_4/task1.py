@@ -26,14 +26,14 @@ class WeatherStation:
     def __init__(self):
         self.__dict__ = WeatherStation.__shared_attr
 
-    def update_data(self, temperature, humidity, pressure):
+    def update_data(self, temperature: int, humidity: int, pressure: int) -> None:
         self.temperature = temperature
         self.humidity = humidity
         self.pressure = pressure
 
-    def get_current_data(self):
-        res = (self.temperature, self.humidity, self.pressure)
-        return res
+    def get_current_data(self) -> tuple:
+        meteorological_data = (self.temperature, self.humidity, self.pressure)
+        return meteorological_data
 
 
 if __name__ == '__main__':
