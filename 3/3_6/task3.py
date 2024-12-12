@@ -20,3 +20,6 @@ class UserMail:
         self.login = login
         self.__email = email
 
+    def get_email(self):
+        return self.__email
+
