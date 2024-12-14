@@ -28,7 +28,9 @@
 
 class Money:
     def __init__(self, dollars, cents):
-        self.total_cents = dollars * 100 + cents
+        self.dollars = dollars
+        self.cents = cents
+        self.total_cents = self.dollars * 100 + self.cents
 
     @property
     def dollars(self):
