@@ -24,3 +24,10 @@
 
 В экземпляр класса кроме атрибута total_cents сохранять ничего не нужно!
 """
+
+
+class Money:
+    def __init__(self, dollars, cents):
+        self.total_cents = dollars * 100 + cents
+
+
