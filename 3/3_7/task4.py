@@ -43,3 +43,6 @@ class Money:
         else:
             print('Error dollars')
 
+    @property
+    def cents(self):
+        return self.cents
