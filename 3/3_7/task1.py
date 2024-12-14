@@ -18,21 +18,21 @@
 
 
 class Celsius:
-    def __init__(self, temp_c):
-        self.temp_c = temp_c
+    def __init__(self, temp_celsius):
+        self.temp_celsius = temp_celsius
 
     def to_fahrenheit(self):
-        return (self.temp_c * 9 / 5) + 32
+        return (self.temp_celsius * 9 / 5) + 32
 
     @property
     def temperature(self):
-        return self.temp_c
+        return self.temp_celsius
 
     @temperature.setter
-    def temperature(self, value: [int, float]):
-        if value < -273.15:
+    def temperature(self, new_temp_celsius: [int, float]):
+        if new_temp_celsius < -273.15:
             raise ValueError
-        self.temp_c = value
+        self.temp_celsius = new_temp_celsius
 
 
 if __name__ == '__main__':
