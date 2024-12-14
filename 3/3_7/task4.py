@@ -37,9 +37,9 @@ class Money:
         return self.total_cents / 100
 
     @dollars.setter
-    def dollars(self, dollars):
-        if isinstance(dollars, int) and dollars > 0:
-            self.dollars = dollars * 100
+    def dollars(self, new_dollars):
+        if isinstance(new_dollars, int) and new_dollars > 0:
+            self.total_cents = new_dollars * 100 + self.cents
         else:
             print('Error dollars')
 
