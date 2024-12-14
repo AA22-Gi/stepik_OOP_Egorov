@@ -53,3 +53,8 @@ class Money:
             self.total_cents = self.dollars * 100 + new_cents
         else:
             print('Error cents')
+
+    def __str__(self):
+        return f'Ваше состояние составляет {self.dollars} долларов {self.cents} центов'
+
+
