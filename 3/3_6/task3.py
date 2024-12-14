@@ -18,14 +18,19 @@
 class UserMail:
     def __init__(self, login: str, email: str):
         self.login = login
-        self.__email = email
+        self.__email = None  # Инициализация приватного атрибута
+        self.set_email(email)
 
     def get_email(self):
         return self.__email
 
     def set_email(self, new_email: str):
-        if '@.' in new_email and new_email.count('@') == 1:
-            self.__email = new_email
+        if isinstance(new_email, str) and new_email.count('@') == 1:
+            index_ = new_email.index('@')
+            if '.' in new_email[index_:]:
+                self.__email = new_email
+            else:
+                raise ValueError(f'ErrorMail:{new_email}')
         else:
             raise ValueError(f'ErrorMail:{new_email}')
 
@@ -33,4 +38,19 @@ class UserMail:
 
 
 if __name__ == '__main__':
-    pass
+    k = UserMail('belosnezhka', 'prince@wait.you')
+    print(k.email)
+    print(k.login)
+    for value in [True, 'prince@still@.wait', 'prince@stillwait']:
+        try:
+            k.email = value
+        except ValueError as e:
+            print(e)
+
+    k.email = 'prince@still.wait'
+    print(k.get_email())
+    try:
+        k.email = 'pri.nce@stillwait'
+    except ValueError as e:
+        print(e)
+    print(k.email)
