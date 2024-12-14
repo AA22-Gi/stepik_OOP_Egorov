@@ -28,7 +28,9 @@
 
 class Money:
     def __init__(self, dollars, cents):
-        self.total_cents = dollars * 100 + cents
+        self.dollars = dollars
+        self.cents = cents
+        self.total_cents = self.dollars * 100 + self.cents
 
     @property
     def dollars(self):
@@ -37,7 +39,7 @@ class Money:
     @dollars.setter
     def dollars(self, dollars):
         if isinstance(dollars, int) and dollars > 0:
-            self.total_cents = dollars * 100
+            self.dollars = dollars * 100
         else:
             print('Error dollars')
 
