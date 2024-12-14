@@ -33,3 +33,11 @@ class Money:
     @property
     def dollars(self):
         return self.total_cents / 100
+
+    @dollars.setter
+    def dollars(self, dollars):
+        if isinstance(dollars, int) and dollars > 0:
+            self.total_cents = dollars * 100
+        else:
+            print('Error dollars')
+
