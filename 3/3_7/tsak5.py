@@ -37,3 +37,11 @@ class TimeZone:
             raise ValueError(f'Timezone bad name - {name}')
         else:
             self._name = name.strip()
+
+    def offset_hours(self, offset_hours):
+        if not isinstance(offset_hours, int):
+            raise ValueError('Hour offset must be an integer.')
+        elif -12 > offset_hours > 15:
+            raise ValueError('Offset must be between -12:00 and +14:00.')
+        else:
+            self._offset_hours = offset_hours
