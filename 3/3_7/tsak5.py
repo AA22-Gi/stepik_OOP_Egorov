@@ -46,7 +46,20 @@ class TimeZone:
     def offset_hours(self, offset_hours):
         if not isinstance(offset_hours, int):
             raise ValueError('Hour offset must be an integer.')
-        elif -12 > offset_hours > 15:
+        elif offset_hours < - 12 or offset_hours > 14:
             raise ValueError('Offset must be between -12:00 and +14:00.')
         else:
             self._offset_hours = offset_hours
+
+    @property
+    def offset_minutes(self):
+        return self._offset_minutes
+
+    @offset_minutes.setter
+    def offset_minutes(self, offset_minutes):
+        if not isinstance(offset_minutes, int):
+            raise ValueError('Minutes offset must be an integer.')
+        elif offset_minutes < -59 or offset_minutes > 59:
+            raise ValueError('Minutes offset must between -59 and 59.')
+        else:
+            self._offset_minutes = offset_minutes
