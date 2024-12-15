@@ -27,6 +27,13 @@
 
 class TimeZone:
     def __init__(self, name, offset_hours, offset_minutes):
-        self.name = name
-        self.offset_hours = offset_hours
-        self.offset_minutes = offset_minutes
+        self._name = name
+        self._offset_hours = offset_hours
+        self._offset_minutes = offset_minutes
+
+    @property
+    def name(self, name):
+        if not isinstance(name, str) or name.strip() == '':
+            raise ValueError(f'Timezone bad name - {name}')
+        else:
+            self._name = name.strip()
