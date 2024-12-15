@@ -38,6 +38,11 @@ class TimeZone:
         else:
             self._name = name.strip()
 
+    @property
+    def offset_hours(self):
+        return self._offset_hours
+
+    @offset_hours.setter
     def offset_hours(self, offset_hours):
         if not isinstance(offset_hours, int):
             raise ValueError('Hour offset must be an integer.')
