@@ -23,3 +23,10 @@
 
 Остальная реализация атрибутов экземпляра и класса, а также и методов полностью на вашем усмотрении.
 """
+
+
+class TimeZone:
+    def __init__(self, name, offset_hours, offset_minutes):
+        self.name = name
+        self.offset_hours = offset_hours
+        self.offset_minutes = offset_minutes
