@@ -26,40 +26,90 @@
 
 
 class TimeZone:
-    def __init__(self, name, offset_hours, offset_minutes):
-        self._name = name
-        self._offset_hours = offset_hours
-        self._offset_minutes = offset_minutes
+    def __init__(self, name: str, offset_hours: int, offset_minutes: int):
+        self.name = name  # Инициализация через сеттер
+        self.offset_hours = offset_hours  # Инициализация через сеттер
+        self.offset_minutes = offset_minutes  # Инициализация через сеттер
 
     @property
-    def name(self, name):
+    def name(self):
+        return self._name  # Защищённый атрибут
+
+    @name.setter
+    def name(self, name: str):
         if not isinstance(name, str) or name.strip() == '':
             raise ValueError(f'Timezone bad name - {name}')
         else:
-            self._name = name.strip()
+            self._name = name.strip()  # Инициализация защищённого атрибута
 
     @property
     def offset_hours(self):
-        return self._offset_hours
+        return self._offset_hours  # Защищённый атрибут
 
     @offset_hours.setter
-    def offset_hours(self, offset_hours):
+    def offset_hours(self, offset_hours: int):
         if not isinstance(offset_hours, int):
             raise ValueError('Hour offset must be an integer.')
         elif offset_hours < - 12 or offset_hours > 14:
             raise ValueError('Offset must be between -12:00 and +14:00.')
         else:
-            self._offset_hours = offset_hours
+            self._offset_hours = offset_hours  # Инициализация защищённого атрибута
 
     @property
     def offset_minutes(self):
-        return self._offset_minutes
+        return self._offset_minutes  # Защищённый атрибут
 
     @offset_minutes.setter
-    def offset_minutes(self, offset_minutes):
+    def offset_minutes(self, offset_minutes: int):
         if not isinstance(offset_minutes, int):
             raise ValueError('Minutes offset must be an integer.')
         elif offset_minutes < -59 or offset_minutes > 59:
             raise ValueError('Minutes offset must between -59 and 59.')
         else:
-            self._offset_minutes = offset_minutes
+            self._offset_minutes = offset_minutes  # Инициализация защищённого атрибута
+
+
+if __name__ == '__main__':
+    tz1 = TimeZone('ABC', -2, -15)
+    print(tz1.name)
+    print(tz1.offset_hours)
+    print(tz1.offset_minutes)
+
+    tz1.name = 'XYZ'
+    tz1.offset_hours = 12
+    tz1.offset_minutes = 0
+
+    try:
+        tz1.offset_hours = 67
+    except ValueError as e:
+        print(e)
+    print(tz1.name, tz1.offset_hours, tz1.offset_minutes)
+    print()
+
+    # пустая строка не должна сохраняться
+    for name in ['', None, '    ', 123, (1, 3), True]:
+        try:
+            TimeZone(name, 5, 34)
+        except ValueError as e:
+            print(e)
+    print()
+
+    try:
+        TimeZone(' Abc ', -20.5, 34)
+    except ValueError as e:
+        print(e)
+
+    try:
+        TimeZone(' Abc ', -15, 34)
+    except ValueError as e:
+        print(e)
+
+    try:
+        TimeZone(' Abc ', 15, 34)
+    except ValueError as e:
+        print(e)
+
+    tz = TimeZone(' Abc ', 10, 34)
+    print(tz.name)
+    print(tz.offset_hours)
+    print(tz.offset_minutes)
