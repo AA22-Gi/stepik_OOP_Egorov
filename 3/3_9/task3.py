@@ -25,20 +25,41 @@ class Date:
         year = int(date[2])
         return cls(day, month, year)
 
-
     @property
     def day(self):
         return self._day
 
+    @day.setter
+    def day(self, value):
+        if not isinstance(value, int):
+            raise ValueError("День должен быть целым числом.")
+        if not (1 <= value <= 31):  # Проверка диапазона дней
+            raise ValueError("День должен быть в диапазоне от 1 до 31.")
+        self._day = value
 
     @property
     def month(self):
         return self._month
 
+    @month.setter
+    def month(self, value):
+        if not isinstance(value, int):
+            raise ValueError("Месяц должен быть целым числом.")
+        if not (1 <= value <= 12):  # Проверка диапазона месяцев
+            raise ValueError("Месяц должен быть в диапазоне от 1 до 12.")
+        self._month = value
 
     @property
     def year(self):
         return self._year
+
+    @year.setter
+    def year(self, value):
+        if not isinstance(value, int):
+            raise ValueError("Год должен быть целым числом.")
+        if value < 0:  # Проверка на положительное значение года
+            raise ValueError("Год не может быть отрицательным.")
+        self._year = value
 
 
 if __name__ == '__main__':
