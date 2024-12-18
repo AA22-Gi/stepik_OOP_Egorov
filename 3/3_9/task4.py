@@ -9,7 +9,7 @@
         Метод is_positive должен возвращать ответ, является ли переданное число положительным;
 
     3)  статик-метод area, который принимает радиус и возвращает площадь круга.
-        Для этого воспользуйтесь формулой pi∗r и в качестве значения pi возьмите 3.14
+        Для этого воспользуйтесь формулой pi∗r∗∗2 и в качестве значения pi возьмите 3.14
 
 Ваша задача только добавить реализацию трех методов в класс Circle
 """
@@ -21,6 +21,19 @@ class Circle:
         if not Circle.is_positive(radius):
             raise ValueError("Радиус должен быть положительным")
         self.radius = radius
+
+    @classmethod
+    def from_diameter(cls, diameter):
+        return Circle(diameter / 2)
+
+    @staticmethod
+    def is_positive(num):
+        return num > 0
+
+    @staticmethod
+    def area(radius):
+        return 3.14 * radius ** 2
+
 
 # код ниже не нужно удалять, в нем находятся проверки
 circle_1 = Circle.from_diameter(10)
