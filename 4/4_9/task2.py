@@ -26,7 +26,7 @@ class Vector:
         elif self.values.count(item) == 1:
             return self.values.index(item) + 1
         else:
-            return [value + 1 for index, value in enumerate(self.values) if value == item]
+            return [index + 1 for index, value in enumerate(self.values) if value == item]
 
 
 if __name__ == '__main__':
